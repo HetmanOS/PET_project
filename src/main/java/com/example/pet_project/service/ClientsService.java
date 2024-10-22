@@ -8,5 +8,6 @@ public interface ClientsService {
 
     List<Clients> getAllClients();
     Clients getClientsByClientId(Long client_id);
+    Clients saveClient(Clients client);
 
 }

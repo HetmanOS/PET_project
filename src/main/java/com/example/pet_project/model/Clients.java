@@ -13,6 +13,15 @@ public class Clients {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long client_id;
 
+    @Column(name = "email", nullable = false)
+    private String email;
+
+    @Column(name = "phone", nullable = false)
+    private String phone;
+
+    @Column(name = "customer_type_id", nullable = false)
+    private int customerTypeId;
+
     @Column(name = "first_name")
     private String firstName;
 
@@ -21,12 +30,6 @@ public class Clients {
 
     @Column(name = "company_name")
     private String companyName;
-
-    @Column(name = "email", nullable = false)
-    private String email;
-
-    @Column(name = "phone", nullable = false)
-    private String phone;
 
 }
 

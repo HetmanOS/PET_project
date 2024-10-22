@@ -1,5 +1,6 @@
 package com.example.pet_project.service.impl;
 
+import ch.qos.logback.core.net.server.Client;
 import com.example.pet_project.model.Clients;
 import com.example.pet_project.repository.ClientsRepository;
 import com.example.pet_project.service.ClientsService;
@@ -28,6 +29,11 @@ public class ClientsServiceImpl implements ClientsService {
         } else {
             throw new RuntimeException("No Client Has Benn Found");
         }
+    }
+
+    @Override
+    public Clients saveClient(Clients client) {
+        return clientsRepository.save(client);
     }
 
 }
