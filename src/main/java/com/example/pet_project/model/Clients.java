@@ -20,7 +20,7 @@ public class Clients {
     private String phone;
 
     @Column(name = "customer_type_id", nullable = false)
-    private int customerTypeId;
+    private Integer customerTypeId;
 
     @Column(name = "first_name")
     private String firstName;
