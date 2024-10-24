@@ -6,10 +6,11 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name = "clients")
+@Table(name = "CLIENTS")
 public class Clients {
 
     @Id
+    @Column(name = "client_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long client_id;
 
@@ -19,8 +20,9 @@ public class Clients {
     @Column(name = "phone", nullable = false)
     private String phone;
 
-    @Column(name = "customer_type_id", nullable = false)
-    private Integer customerTypeId;
+    @OneToOne
+    @JoinColumn(name = "client_type_id", nullable = false)
+    private ClientType id;
 
     @Column(name = "first_name")
     private String firstName;
@@ -32,4 +34,3 @@ public class Clients {
     private String companyName;
 
 }
-
