@@ -19,7 +19,7 @@ public class Cars {
     @JoinColumn(name = "customer_id", referencedColumnName = "client_id")
     private Clients client_id;
 
-    @Column(name = "status")
+    @Column(name = "status", nullable = false)
     private String status;
 
     @OneToOne

@@ -1,6 +1,5 @@
 package com.example.pet_project.service.impl;
 
-import ch.qos.logback.core.net.server.Client;
 import com.example.pet_project.model.Clients;
 import com.example.pet_project.repository.ClientsRepository;
 import com.example.pet_project.service.ClientsService;
@@ -22,12 +21,12 @@ public class ClientsServiceImpl implements ClientsService {
     }
 
     @Override
-    public Clients getClientsByClientId(Long client_id) {
+    public Clients getClientByClientId(Long client_id) {
         Optional<Clients> client = clientsRepository.findById(client_id);
         if (client.isPresent()) {
             return client.get();
         } else {
-            throw new RuntimeException("No Client Has Benn Found");
+            throw new RuntimeException("No Client Has Been Found");
         }
     }
 
