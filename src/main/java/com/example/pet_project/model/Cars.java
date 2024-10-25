@@ -16,14 +16,14 @@ public class Cars {
     private Long car_id;
 
     @ManyToOne
-    @JoinColumn(name = "customer_id")
+    @JoinColumn(name = "customer_id", referencedColumnName = "client_id")
     private Clients client_id;
 
     @Column(name = "status")
     private String status;
 
     @OneToOne
-    @JoinColumn(name = "class_id", nullable = false)
+    @JoinColumn(name = "class_id", nullable = false, referencedColumnName = "class_id")
     private Classification class_id;
 
     @Column(name = "model_name", nullable = false)
@@ -33,7 +33,7 @@ public class Cars {
     private Date release_date;
 
     @OneToOne
-    @JoinColumn(name = "fuel_id", nullable = false)
+    @JoinColumn(name = "fuel_id", nullable = false, referencedColumnName = "fuel_id")
     private Fuel fuel_id;
 
     @Column(name = "engine_volume", nullable = false)
@@ -43,7 +43,7 @@ public class Cars {
     private String gear_type;
 
     @OneToOne
-    @JoinColumn(name = "country_id", nullable = false)
+    @JoinColumn(name = "country_id", nullable = false, referencedColumnName = "country_id")
     private Country country_id;
 
 }

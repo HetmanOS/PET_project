@@ -21,10 +21,10 @@ public class Clients {
     private String phone;
 
     @OneToOne
-    @JoinColumn(name = "client_type_id", nullable = false)
-    private ClientType id;
+    @JoinColumn(name = "client_type_id", nullable = false,  referencedColumnName = "id")
+    private ClientType clientType;
 
-    @Column(name = "first_name")
+    @Column(name = "first_name", nullable = false)
     private String firstName;
 
     @Column(name = "last_name")

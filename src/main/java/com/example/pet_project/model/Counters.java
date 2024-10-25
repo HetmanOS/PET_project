@@ -1,14 +1,6 @@
 package com.example.pet_project.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.ForeignKey;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 
 @Entity
@@ -21,8 +13,8 @@ public class Counters {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long counter_id;
 
-    @ManyToOne
-    @JoinColumn(name = "client_id")
+    @OneToOne
+    @JoinColumn(name = "client_id", nullable = false, referencedColumnName = "client_id")
     private Clients client_id;
 
     @Column(name = "economy_num")
