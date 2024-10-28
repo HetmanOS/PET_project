@@ -30,16 +30,6 @@ public class CarsServiceImpl implements CarsService {
         }
     }
 
-    /*@Override
-    public Cars getCarsByCustomerId(Long customer_id) {
-        Optional<Cars> cars = carsRepository.find(customer_id);
-        if (cars.isPresent()) {
-            return cars.get();
-        } else {
-            throw new RuntimeException("No Cars for that Customer");
-        }
-    }*/
-
     @Override
     public List<Cars> getCarsByCustomerId(Long customer_id) {
         List<Cars> cars = carsRepository.findByCustomerId(customer_id);

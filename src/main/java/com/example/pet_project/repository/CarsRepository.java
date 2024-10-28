@@ -9,7 +9,10 @@ import java.util.List;
 
 public interface CarsRepository extends JpaRepository<Cars, Long> {
 
-    @Query("SELECT c FROM Cars c WHERE c.client_id.client_id = :customer_id")
+    @Query(
+            value = "SELECT * FROM CARS WHERE customer_id = :customer_id",
+            nativeQuery = true
+    )
     List<Cars> findByCustomerId(@Param("customer_id") Long customer_id);
 
 }
