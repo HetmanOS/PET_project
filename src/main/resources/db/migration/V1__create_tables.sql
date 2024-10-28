@@ -3,7 +3,7 @@
 -- Create CUSTOMER_TYPES table, which represents available customer types:
 CREATE TABLE IF NOT EXISTS CLIENT_TYPE(
   id NUMBER(20,0) GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 1),
-  type VARCHAR2(4000) NOT NULL,
+  type VARCHAR2(255) NOT NULL,
   CONSTRAINT client_type_pk PRIMARY KEY(id)
 );
 
@@ -12,12 +12,12 @@ COMMENT ON COLUMN CLIENTS.client_id IS 'customer unique id';
 -- Create CLIENTS table, which contains all customer related personal data:
 CREATE TABLE IF NOT EXISTS CLIENTS(
   client_id NUMBER(20,0) GENERATED ALWAYS AS IDENTITY (START WITH 1727298000 INCREMENT BY 1),
-  email VARCHAR2(4000) NOT NULL,
-  phone VARCHAR2(4000) NOT NULL,
+  email VARCHAR2(255) NOT NULL,
+  phone VARCHAR2(255) NOT NULL,
   client_type_id NUMBER(20,0) NOT NULL,
-  first_name VARCHAR2(4000),
-  last_name VARCHAR2(4000),
-  company_name VARCHAR2 (4000),
+  first_name VARCHAR2(255),
+  last_name VARCHAR2(255),
+  company_name VARCHAR2 (255),
   CONSTRAINT clients_pk PRIMARY KEY(client_id)
 );
 
@@ -43,21 +43,21 @@ ALTER TABLE COUNTERS ADD FOREIGN KEY(client_id) REFERENCES CLIENTS(client_id);
 -- Create CLASSIFICATION table, which classify cars by a class:
 CREATE TABLE IF NOT EXISTS CLASSIFICATION(
   class_id NUMBER(20,0) GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 1),
-  description VARCHAR2(4000),
+  description VARCHAR2(255),
   CONSTRAINT classification_pk PRIMARY KEY(class_id)
 );
 
 -- Create FUEL table, which classify cars by a fuel type:
 CREATE TABLE IF NOT EXISTS FUEL(
   fuel_id NUMBER(20,0) GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 1),
-  fuel_type VARCHAR2(4000),
+  fuel_type VARCHAR2(255),
   CONSTRAINT fuel_pk PRIMARY KEY(id)
 );
 
 -- Create COUNTRY table, which classify cars' model name with appropriate country of origin:
 CREATE TABLE IF NOT EXISTS COUNTRY(
   country_id NUMBER(20,0) GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 1),
-  country_of_origin VARCHAR2(4000),
+  country_of_origin VARCHAR2(255),
   CONSTRAINT country_pk PRIMARY KEY(id)
 );
 
@@ -65,13 +65,13 @@ CREATE TABLE IF NOT EXISTS COUNTRY(
 CREATE TABLE IF NOT EXISTS CARS(
   car_id NUMBER(20,0) GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 1),
   customer_id NUMBER(20,0),
-  status VARCHAR2(4000) NOT NULL,
+  status VARCHAR2(255) NOT NULL,
   class_id NUMBER(20,0) NOT NULL,
-  model_name VARCHAR2(4000) NOT NULL,
+  model_name VARCHAR2(255) NOT NULL,
   release_date DATE NOT NULL,
   fuel_id NUMBER(20,0) NOT NULL,
-  engine_volume VARCHAR2(4000) NOT NULL,
-  gear_type VARCHAR2(4000) NOT NULL,
+  engine_volume VARCHAR2(255) NOT NULL,
+  gear_type VARCHAR2(255) NOT NULL,
   country_id NUMBER(20,0) NOT NULL,
   CONSTRAINT cars_pk PRIMARY KEY(car_id)
 );
@@ -86,7 +86,7 @@ ALTER TABLE CARS ADD FOREIGN KEY(country_id) REFERENCES COUNTRY(country_id);
 CREATE TABLE IF NOT EXISTS RATE(
   rate_id NUMBER(20,0) GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 1),
   class_id NUMBER(20,0),
-  name VARCHAR2(4000) NOT NULL,
+  name VARCHAR2(255) NOT NULL,
   price NUMBER(20,0),
   percentage NUMBER(20,0),
   CONSTRAINT rate_pk PRIMARY KEY(rate_id)
