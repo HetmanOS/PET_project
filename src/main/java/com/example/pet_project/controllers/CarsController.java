@@ -31,6 +31,11 @@ public class CarsController {
         return new ResponseEntity<Cars>(carsService.getCarByCarId(car_id), HttpStatus.OK);
     }
 
+    @GetMapping("/classification/{class_id}")
+    public ResponseEntity<List<Cars>> getAvailableCarsByClassId(@PathVariable("class_id") Long class_id) {
+        return new ResponseEntity<List<Cars>>(carsService.getAvailableCarsByClassId(class_id), HttpStatus.OK);
+    }
+
     @GetMapping("/customer/{customer_id}")
     public ResponseEntity<List<Cars>> getCarsByCustomerId(@PathVariable("customer_id") Long customer_id) {
         return new ResponseEntity<List<Cars>>(carsService.getCarsByCustomerId(customer_id), HttpStatus.OK);

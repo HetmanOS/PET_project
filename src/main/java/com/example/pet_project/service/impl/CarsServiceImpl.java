@@ -41,6 +41,16 @@ public class CarsServiceImpl implements CarsService {
     }
 
     @Override
+    public List<Cars> getAvailableCarsByClassId(Long class_id) {
+        List<Cars> cars = carsRepository.findAllAvailableCarsByClassId(class_id);
+        if (!cars.isEmpty()) {
+            return cars;
+        } else {
+            throw new RuntimeException("No Cars are 'Available' now in that Class");
+        }
+    }
+
+    @Override
     public Cars saveCar(Cars car) {
         return carsRepository.save(car);
     }

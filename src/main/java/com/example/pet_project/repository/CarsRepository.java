@@ -15,4 +15,10 @@ public interface CarsRepository extends JpaRepository<Cars, Long> {
     )
     List<Cars> findByCustomerId(@Param("customer_id") Long customer_id);
 
+    @Query(
+            value = "SELECT * FROM CARS WHERE status='Available' AND class_id = :class_id",
+            nativeQuery = true
+    )
+    List<Cars> findAllAvailableCarsByClassId(@Param("class_id") Long class_id);
+
 }
