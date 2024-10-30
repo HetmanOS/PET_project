@@ -1,8 +1,11 @@
 package com.example.pet_project.service.impl;
 
 import com.example.pet_project.model.Cars;
+import com.example.pet_project.model.Clients;
 import com.example.pet_project.repository.CarsRepository;
+import com.example.pet_project.repository.ClientsRepository;
 import com.example.pet_project.service.CarsService;
+import com.example.pet_project.service.CountersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +17,10 @@ public class CarsServiceImpl implements CarsService {
 
     @Autowired
     private CarsRepository carsRepository;
+    @Autowired
+    private ClientsRepository clientsRepository;
+    @Autowired
+    private CountersService countersService;
 
     @Override
     public List<Cars> getAllCars() {
@@ -52,6 +59,29 @@ public class CarsServiceImpl implements CarsService {
 
     @Override
     public Cars saveCar(Cars car) {
+        return carsRepository.save(car);
+    }
+
+    @Override
+    public Cars assignCarToClient(Long car_id, Long client_id) {
+        Cars car = carsRepository.findById(car_id)
+                .orElseThrow(() -> new RuntimeException("Car not found with ID: " + car_id));
+        Clients client = clientsRepository.findById(client_id)
+                .orElseThrow(() -> new RuntimeException("Client not found with ID: " + client_id));
+
+        List<Cars> availableCars = getAvailableCarsByClassId(car.getClass_id().getClass_id());
+
+        boolean isCarAvailable = availableCars.stream().anyMatch(availableCar -> availableCar.getCar_id().equals(car_id));
+        if(!isCarAvailable) {
+            throw new IllegalStateException("Car Id with ID '" + car_id + "' is 'Not Available' for assignment");
+        }
+
+        car.setClient_id(client);
+        car.setStatus("Not Available");
+
+        String carClassification = car.getClass_id().getDescription();
+        countersService.incrementCounterForClient(client_id, carClassification);
+
         return carsRepository.save(car);
     }
 

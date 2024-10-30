@@ -30,13 +30,13 @@ INSERT INTO CLIENTS(email, phone, client_type_id, company_name)
 VALUES('vodafone_ukraine@gmail.com', '+380(0500)40-01-11', 2, 'VODAFONE_LLC');
 
 -- Insert into CLASSIFICATION table:
-INSERT INTO CLASSIFICATION(description) VALUES('Economy Class');
-INSERT INTO CLASSIFICATION(description) VALUES('Middle Class');
-INSERT INTO CLASSIFICATION(description) VALUES('Business Class');
-INSERT INTO CLASSIFICATION(description) VALUES('Premium Class');
-INSERT INTO CLASSIFICATION(description) VALUES('SUV Class');
-INSERT INTO CLASSIFICATION(description) VALUES('Minivan Class');
-INSERT INTO CLASSIFICATION(description) VALUES('Electric_Hybrid Class');
+INSERT INTO CLASSIFICATION(description) VALUES('Economy');
+INSERT INTO CLASSIFICATION(description) VALUES('Middle');
+INSERT INTO CLASSIFICATION(description) VALUES('Business');
+INSERT INTO CLASSIFICATION(description) VALUES('Premium');
+INSERT INTO CLASSIFICATION(description) VALUES('SUV');
+INSERT INTO CLASSIFICATION(description) VALUES('Minivan');
+INSERT INTO CLASSIFICATION(description) VALUES('Electro_Hybrid');
 
 -- Insert into FUEL table:
 INSERT INTO FUEL(fuel_type) VALUES('Gasoline');

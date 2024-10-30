@@ -4,7 +4,9 @@ import com.example.pet_project.model.Cars;
 import com.example.pet_project.service.CarsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -44,6 +46,12 @@ public class CarsController {
     @PostMapping
     public ResponseEntity<Cars> saveCar(@RequestBody Cars car) {
         return new ResponseEntity<Cars>(carsService.saveCar(car), HttpStatus.CREATED);
+    }
+
+    @PostMapping("/assign/{car_id}/to/{client_id}")
+    public ResponseEntity<Cars> assignCarToClient(@PathVariable("car_id") Long car_id, @PathVariable("client_id") Long client_id) {
+        Cars updatedCar = carsService.assignCarToClient(car_id, client_id);
+        return new ResponseEntity<Cars>(updatedCar, HttpStatus.OK);
     }
 
 }
