@@ -19,13 +19,13 @@ public class RateController {
     private RateService rateService;
 
     @GetMapping("/total/{client_id}")
-    public ResponseEntity<Map<String, Integer>> calculateForClient(@PathVariable Long client_id) {
-        Map<String, Integer> totalAmount = new HashMap<>();
+    public ResponseEntity<Map<String, Map<String, Integer>>> calculateForClient(@PathVariable Long client_id) {
+        Map<String, Map<String, Integer>> totalAmount = new HashMap<>();
+
         totalAmount.put("Daily", rateService.calculateTotalForClient(client_id, "Daily"));
         totalAmount.put("Weekly", rateService.calculateTotalForClient(client_id, "Weekly"));
         totalAmount.put("Monthly", rateService.calculateTotalForClient(client_id, "Monthly"));
 
         return ResponseEntity.ok(totalAmount);
     }
-
 }

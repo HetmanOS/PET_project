@@ -1,7 +1,9 @@
 package com.example.pet_project.service;
 
+import java.util.Map;
+
 public interface RateService {
 
-    Integer calculateTotalForClient(Long client_id, String rateType);
+    Map<String, Integer> calculateTotalForClient(Long client_id, String rateType);
 
 }
