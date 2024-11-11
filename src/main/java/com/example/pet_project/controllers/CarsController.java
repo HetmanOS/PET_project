@@ -54,4 +54,10 @@ public class CarsController {
         return new ResponseEntity<Cars>(updatedCar, HttpStatus.OK);
     }
 
+    @PostMapping("/deassign/{car_id}/from/{client_id}")
+    public ResponseEntity<Cars> deassignCarFromClient(@PathVariable("car_id") Long car_id, @PathVariable("client_id") Long client_id) {
+        Cars updatedCar = carsService.deassignCarFromClient(car_id, client_id);
+        return new ResponseEntity<Cars>(updatedCar, HttpStatus.OK);
+    }
+
 }

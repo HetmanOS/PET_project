@@ -85,4 +85,23 @@ public class CarsServiceImpl implements CarsService {
         return carsRepository.save(car);
     }
 
+    @Override
+    public Cars deassignCarFromClient(Long car_id, Long client_id) {
+        Cars car = carsRepository.findById(car_id)
+                .orElseThrow(() -> new RuntimeException("Car not found with ID: " + car_id));
+        Clients client = clientsRepository.findById(client_id)
+                .orElseThrow(() -> new RuntimeException("Client not found with ID: " + client_id));
+        if (car.getClient_id() == null || !car.getClient_id().getClient_id().equals(client_id)) {
+            throw new IllegalStateException("Car " + car_id + " is not assigned to the client with ID: " + client_id);
+        }
+
+        car.setClient_id(null);
+        car.setStatus("Available");
+
+        String carClassification = car.getClass_id().getDescription();
+        countersService.decrementCounterForClient(client_id, carClassification);
+
+        return carsRepository.save(car);
+    }
+
 }

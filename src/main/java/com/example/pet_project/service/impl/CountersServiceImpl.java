@@ -85,4 +85,42 @@ public class CountersServiceImpl implements CountersService {
         }
     }
 
+    @Override
+    public void decrementCounterForClient(Long client_id, String carClassification) {
+        Counters counters = countersRepository.findByClientId(client_id);
+
+        if (counters == null) {
+            throw new RuntimeException("No counters found for client with ID: " + client_id);
+        }
+
+        switch (carClassification.toLowerCase()) {
+            case "economy":
+                counters.setEconomy_num(Math.max(0, counters.getEconomy_num() - 1));
+                break;
+            case "middle":
+                counters.setMiddle_num(Math.max(0, counters.getMiddle_num() - 1));
+                break;
+            case "business":
+                counters.setBusiness_num(Math.max(0, counters.getBusiness_num() - 1));
+                break;
+            case "premium":
+                counters.setPremium_num(Math.max(0, counters.getPremium_num() -1 ));
+                break;
+            case "suv":
+                counters.setSuv_num(Math.max(0, counters.getSuv_num() -1 ));
+                break;
+            case "minivans":
+                counters.setMinivans_num(Math.max(0, counters.getMinivans_num() -1 ));
+                break;
+            case "electro_hybrid":
+                counters.setElectro_hybrid_num(Math.max(0, counters.getElectro_hybrid_num() -1 ));
+                break;
+            default:
+                throw new IllegalArgumentException("Unknown car classification: " + carClassification);
+        }
+
+        countersRepository.save(counters);
+
+    }
+
 }

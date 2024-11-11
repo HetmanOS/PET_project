@@ -12,5 +12,6 @@ public interface CarsService {
     List<Cars> getAvailableCarsByClassId(Long class_id);
     Cars saveCar(Cars car_id);
     Cars assignCarToClient(Long car_id, Long client_id);
+    Cars deassignCarFromClient(Long car_id, Long client_id);
 
 }
