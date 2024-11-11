@@ -22,7 +22,8 @@ public class CountersServiceImpl implements CountersService {
 
         if (counters == null) {
             counters = new Counters();
-            Clients client = new Clients();
+            Clients client = clientsRepository.findById(client_id)
+                    .orElseThrow(() -> new RuntimeException("Client not found with ID: " + client_id));
             counters.setClient_id(client);
             initializeCounters(counters, carClassification);
             countersRepository.save(counters);
