@@ -104,12 +104,12 @@ Ref: CLASSIFICATION.class_id < RATE.class_id //many-to-one
 
 ## REST API implemented in Pet Project:
 
-<span style="color:purple">**CLIENTS**</span> model:
+<code style="color : fuchsia">**CLIENTS**</code> model:
 1. _'saveClient'_ API creates the client:
 
-|                    API  	                     |    HTTP Command 	                         |     URL      |
-|:---------------------------------------------:|:-----------------------------------------:|:------------:|
-|<span style="color:blue">saveClient</span>   	 | <span style="color:green">POST</span>   	 | /api/clients |
+|                     API  	                     |              HTTP Command 	               |     URL      |
+|:----------------------------------------------:|:-----------------------------------------:|:------------:|
+| <code style="color:blue">saveClient</code>   	 | <code style="color:green">POST</code>   	 | /api/clients |
 
 
 <details>
@@ -149,9 +149,9 @@ Status: 201 Created
 
 2. _'getAllClients'_ API returns the list of all clients with all clients' data:
 
-|                    API  	                     |              HTTP Command 	              |     URL      |
-|:---------------------------------------------:|:----------------------------------------:|:------------:|
-|<span style="color:blue">getAllClients</span>   	 | <span style="color:green">GET</span>   	 | /api/clients |
+|                      API  	                       |              HTTP Command 	              |     URL      |
+|:-------------------------------------------------:|:----------------------------------------:|:------------:|
+| <code style="color:blue">getAllClients</code>   	 | <code style="color:green">GET</code>   	 | /api/clients |
 
 
 <details>
@@ -190,9 +190,9 @@ Status: 200 OK
 
 3. _'getClientByClientId'_ API returns the specific client data:
 
-|                    API  	                     |              HTTP Command 	              |      URL      |
-|:---------------------------------------------:|:----------------------------------------:|:-------------:|
-|<span style="color:blue">getClientByClientId</span>   	 | <span style="color:green">GET</span>   	 | /api/clients/{client_id} |
+|                         API  	                          |              HTTP Command 	              |      URL      |
+|:-------------------------------------------------------:|:----------------------------------------:|:-------------:|
+| <code style="color:blue">getClientByClientId</code>   	 | <code style="color:green">GET</code>   	 | /api/clients/{client_id} |
 
 <details>
 <summary>Response Example</summary>
@@ -214,12 +214,12 @@ Status: 200 OK
 ~~~
 </details>
 
-<span style="color:purple">**CARS**</span> model:
+<code style="color : fuchsia">**CARS**</code> model:
 1. _'getAllCars'_ API returns the list of all cars with appropriate data:
 
-|                    API  	                     |              HTTP Command 	              |    URL    |
-|:---------------------------------------------:|:----------------------------------------:|:---------:|
-|<span style="color:blue">getAllCars</span>   	 | <span style="color:green">GET</span>   	 | /api/cars |
+|                     API  	                     |              HTTP Command 	              |    URL    |
+|:----------------------------------------------:|:----------------------------------------:|:---------:|
+| <code style="color:blue">getAllCars</code>   	 | <code style="color:green">GET</code>   	 | /api/cars |
 
 <details>
 <summary>Response Example</summary>
@@ -297,9 +297,9 @@ Status: 200 OK
 
 2. _'getCarByCarId'_ API returns the data for a specific _car_id_:
 
-|                    API  	                     |              HTTP Command 	              |          URL           |
-|:---------------------------------------------:|:----------------------------------------:|:----------------------:|
-|<span style="color:blue">getCarByCarId</span>   	 | <span style="color:green">GET</span>   	 | /api/cars/car/{car_id} |
+|                      API  	                       |              HTTP Command 	              |          URL           |
+|:-------------------------------------------------:|:----------------------------------------:|:----------------------:|
+| <code style="color:blue">getCarByCarId</code>   	 | <code style="color:green">GET</code>   	 | /api/cars/car/{car_id} |
 
 <details>
 <summary>Response Example</summary>
@@ -332,9 +332,9 @@ Status: 200 OK
 
 3. _'getCarsByCustomerId'_ API returns the list of cars data for a specific _client_id_:
 
-|                    API  	                     |              HTTP Command 	              |              URL               |
-|:---------------------------------------------:|:----------------------------------------:|:------------------------------:|
-|<span style="color:blue">getCarsByCustomerId</span>   	 | <span style="color:green">GET</span>   	 | /api/cars/customer/{client_id} |
+|                         API  	                          |              HTTP Command 	              |              URL               |
+|:-------------------------------------------------------:|:----------------------------------------:|:------------------------------:|
+| <code style="color:blue">getCarsByCustomerId</code>   	 | <code style="color:green">GET</code>   	 | /api/cars/customer/{client_id} |
 
 <details>
 <summary>Response Example</summary>
@@ -444,9 +444,9 @@ Status: 200 OK
 
 4. _'getAvailableCarsByClassId'_ API returns the list of 'Avaialable' cars within specific classification:
 
-|                    API  	                     |              HTTP Command 	              |                 URL                 |
-|:---------------------------------------------:|:----------------------------------------:|:-----------------------------------:|
-|<span style="color:blue">getAvailableCarsByClassId</span>   	 | <span style="color:green">GET</span>   	 | /api/cars/classification/{class_id} |
+|                            API  	                             |              HTTP Command 	              |                 URL                 |
+|:-------------------------------------------------------------:|:----------------------------------------:|:-----------------------------------:|
+| <code style="color:blue">getAvailableCarsByClassId</code>   	 | <code style="color:green">GET</code>   	 | /api/cars/classification/{class_id} |
 
 <details>
 <summary>Response Example</summary>
@@ -502,9 +502,9 @@ Status: 200 OK
 
 5. _'saveCar'_ API creates the car:
 
-|                    API  	                     |    HTTP Command 	                         |    URL    |
-|:---------------------------------------------:|:-----------------------------------------:|:---------:|
-|<span style="color:blue">saveCar</span>   	 | <span style="color:green">POST</span>   	 | /api/cars |
+|                   API  	                    |              HTTP Command 	               |    URL    |
+|:-------------------------------------------:|:-----------------------------------------:|:---------:|
+| <code style="color:blue">saveCar</code>   	 | <code style="color:green">POST</code>   	 | /api/cars |
 
 
 <details>
@@ -557,7 +557,7 @@ Status: 201 Created
 
 |                    API  	                     |    HTTP Command 	                         |                   URL                    |
 |:---------------------------------------------:|:-----------------------------------------:|:----------------------------------------:|
-|<span style="color:blue">assignCarToClient</span>   	 | <span style="color:green">POST</span>   	 | /api/cars/assign/{car_id}/to/{client_id} |
+|<code style="color : blue">assignCarToClient</code>   	 | <code style="color : green">POST</code>   	 | /api/cars/assign/{car_id}/to/{client_id} |
 
 
 <details>
@@ -602,9 +602,9 @@ Status: 200 OK
 
 7. _'deassignCarFromClient'_ API de-assigns the _car_id_ from the _client_id_:
 
-|                    API  	                     |    HTTP Command 	                         |                     URL                      |
-|:---------------------------------------------:|:-----------------------------------------:|:--------------------------------------------:|
-|<span style="color:blue">deassignCarFromClient</span>   	 | <span style="color:green">POST</span>   	 | /api/cars/deassign/{car_id}/from/{client_id} |
+|                    API  	                     |               HTTP Command 	                |                     URL                      |
+|:---------------------------------------------:|:-------------------------------------------:|:--------------------------------------------:|
+|<code style="color : blue">deassignCarFromClient</code>   	 | <code style="color : green">POST</code>   	 | /api/cars/deassign/{car_id}/from/{client_id} |
 
 
 <details>
@@ -636,12 +636,12 @@ Status: 200 OK
 ~~~
 </details>
 
-<span style="color:purple">**CLASSIFICATION**</span> model:
+<code style="color : fuchsia">**CLASSIFICATION**</code> model:
 1. _'getAllClassifications'_ API returns all cars classification:
 
 |                    API  	                     |              HTTP Command 	              |         URL          |
 |:---------------------------------------------:|:----------------------------------------:|:--------------------:|
-|<span style="color:blue">getAllClassifications</span>   	 | <span style="color:green">GET</span>   	 | /api/classifications |
+|<code style="color : blue">getAllClassifications</code>   	 | <code style="color : green">GET</code>    	 | /api/classifications |
 
 
 <details>
@@ -682,12 +682,12 @@ Status: 200 OK
 ~~~
 </details>
 
-<span style="color:purple">**RATE**</span> model:
+<code style="color : fuchsia">**RATE**</code> model:
 1. _'calculateTotalForClient'_ API returns the final bill calculation based on the current rates and customers cars with appropriate classification:
 
-|                    API  	                     |              HTTP Command 	              |             URL              |
-|:---------------------------------------------:|:----------------------------------------:|:----------------------------:|
-|<span style="color:blue">calculateTotalForClient</span>   	 | <span style="color:green">GET</span>   	 | /api/rates/total/{client_id} |
+|                            API  	                             |               HTTP Command 	               |             URL              |
+|:-------------------------------------------------------------:|:------------------------------------------:|:----------------------------:|
+| <code style="color : blue">calculateTotalForClient</code>   	 | <code style="color : green">GET</code>   	 | /api/rates/total/{client_id} |
 
 
 <details>
