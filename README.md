@@ -637,7 +637,7 @@ Status: 200 OK
 ~~~
 </details>
 
-**${\textsf{\color{fuchsia}CLASSIFICATION}}$** model: model:
+**${\textsf{\color{fuchsia}CLASSIFICATION}}$** model:
 1. _'getAllClassifications'_ API returns all cars classification:
 
 |                   API  	                    |           HTTP Command 	           |         URL          |
